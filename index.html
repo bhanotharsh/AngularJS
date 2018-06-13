@@ -7,11 +7,24 @@
 
 <p>
 Enter your name<input type="text" name="" ng-model="name">
-
+<div ng-init="students=[{name:'harsh',rollno:'13'},{name:'harsh2',rollno:'131'},{name:'harsg h',rollno:'153'},{name:'harshgdsf',rollno:'131'}]"></div>
 </p>
 <br>
 HY!! <span ng-bind="name"></span>
+<table>
+	<tr ng-repeat="stud in students">
+		<td ng-init="index=1">
+			{{index=index+1}}</td>
+		<td >
+			{{'name:'+stud.name}}</td>
+			<td >
+			{{'name:'+stud.rollno}}</td>
+	</tr>
 
+
+
+
+</table>
 
 <script type="text/javascript" src="angular.js"></script>
 </body>
