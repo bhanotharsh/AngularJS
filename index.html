@@ -3,18 +3,27 @@
 <script src="angular.js"></script>
 <body>
 <div ng-app="square" ng-controller="squarecontroller">
-	<input type="text" name="" ng-model="number">
-	<p>{{doSquare()}}</p>
+	
+	<p>{{place | uppercase }}</p>
+	<ul>
+		<li ng-repeat="stud in student.languages | orderBy:'-Marks'">
+			{{stud.subject +"  "+ stud.Marks}}
+		</li>
+
+	</ul>
 </div>
 <script type="text/javascript">
 	var x=angular.module('square',[]);
 	x.controller('squarecontroller', function($scope){
-
-		$scope.doSquare=function(){
-				var z=$scope.number;
-				return z*z;
-			}
-		
+		$scope.place="bangalore";
+		$scope.state="karnataKAa";	
+		$scope.student= {languages:[
+				{subject:'java',Marks:32},
+				{subject:'c#',Marks:37},
+				{subject:'python',Marks:90},	
+				{subject:'java',Marks:382},
+				{subject:'java',Marks:326}
+			]};	
 	});
 
 </script>
