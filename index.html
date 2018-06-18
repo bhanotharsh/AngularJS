@@ -1,31 +1,24 @@
 <!DOCTYPE html>
-<html ng-app="">
-<head>
-	<title>Angular Practice</title>
-</head>
+<html>
+<script src="angular.js"></script>
 <body>
 
-<p>
-Enter your name<input type="text" name="" ng-model="name">
-<div ng-init="students=[{name:'harsh',rollno:'13'},{name:'harsh2',rollno:'131'},{name:'harsg h',rollno:'153'},{name:'harshgdsf',rollno:'131'}]"></div>
-</p>
+<div ng-app="myApp" ng-controller="myCtrl">
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
 <br>
-HY!! <span ng-bind="name"></span>
-<table>
-	<tr ng-repeat="stud in students">
-		<td ng-init="index=1">
-			{{index=index+1}}</td>
-		<td >
-			{{'name:'+stud.name}}</td>
-			<td >
-			{{'name:'+stud.rollno}}</td>
-	</tr>
+Full Name: {{firstName + " " + lastName}}
 
+</div>
 
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+});
+</script>
 
-
-</table>
-
-<script type="text/javascript" src="angular.js"></script>
 </body>
 </html>
