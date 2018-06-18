@@ -2,23 +2,21 @@
 <html>
 <script src="angular.js"></script>
 <body>
-
-<div ng-app="myApp" ng-controller="myCtrl">
-
-First Name: <input type="text" ng-model="firstName"><br>
-Last Name: <input type="text" ng-model="lastName"><br>
-<br>
-Full Name: {{firstName + " " + lastName}}
-
+<div ng-app="square" ng-controller="squarecontroller">
+	<input type="text" name="" ng-model="number">
+	<p>{{doSquare()}}</p>
 </div>
+<script type="text/javascript">
+	var x=angular.module('square',[]);
+	x.controller('squarecontroller', function($scope){
 
-<script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
-    $scope.firstName = "John";
-    $scope.lastName = "Doe";
-});
+		$scope.doSquare=function(){
+				var z=$scope.number;
+				return z*z;
+			}
+		
+	});
+
 </script>
-
 </body>
 </html>
