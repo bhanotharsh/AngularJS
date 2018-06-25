@@ -1,31 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html><!--custum filter-->
 <script src="angular.js"></script>
-<body>
-<div ng-app="square" ng-controller="squarecontroller">
-	
-	<p>{{place | uppercase }}</p>
-	<ul>
-		<li ng-repeat="stud in student.languages | orderBy:'-Marks'">
-			{{stud.subject +"  "+ stud.Marks}}
-		</li>
+<body ng-app="myApp">
+	<script type="text/javascript">
+	angular.module('myApp',[])
+	.filter('capital',function(){
+	return function(input){
+	if(input){
+		
+	return input[0].toUpperCase()+input.slice(1);
+}
+}
 
-	</ul>
-</div>
-<script type="text/javascript">
-	var x=angular.module('square',[]);
-	x.controller('squarecontroller', function($scope){
-		$scope.place="bangalore";
-		$scope.state="karnataKAa";	
-		$scope.student= {languages:[
-				{subject:'java',Marks:32},
-				{subject:'c#',Marks:37},
-				{subject:'python',Marks:90},	
-				{subject:'java',Marks:382},
-				{subject:'java',Marks:326}
-			]};	
-	});
-
+});
+</script>
+<div ng-init="Name='MY name is harsh'"></div>
+<p>{{Name|lowercase|capital}}</p>
 </script>
 </body>
 </html>
